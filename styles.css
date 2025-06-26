@@ -1,7 +1,6 @@
-/* CSS BY YOUR NAME */
-
+/* CSS BY Brittani Ericksen */
 /* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -65,6 +64,9 @@ table {
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+body {
+    min-width: 400px;
+}
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -87,13 +89,12 @@ table {
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
  {
     content: "";
-
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
 }
+
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -107,6 +108,7 @@ table {
     padding: 1rem;
     position: relative;
 }
+
 /* ADD ON TRANSITION ON HEIGHT */
 .bar {
     width: 50px;
@@ -116,6 +118,7 @@ table {
     transition: ;
     height: 0;
 }
+
 /* THIS ONE IS DONE FOR YOU */
 .bar::after {
     content: attr(data-year);
@@ -127,6 +130,7 @@ table {
     font-weight: bold;
     color: var(--white);
 }
+
 @keyframes stepUp {
     0% {
         height: 0;
@@ -135,6 +139,7 @@ table {
         height: var(--height);
     }
 }
+
 /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
 .bar {
     animation: stepUp 1s ease-in-out forwards;
@@ -142,7 +147,7 @@ table {
 
 
 /* MEDIA QUERIES (MEDIUM) */ 
-
+@media screen and (min-width: 800px) {
     #results {
         grid-template-columns: 1fr 1fr;
     }
@@ -156,6 +161,9 @@ table {
     .bar-chart {
         width: 50%;
     }
-
+}
 
 /* MEDIA QUERIES (LARGE) */
+@media screen and (min-width: 1024px) {
+
+}
