@@ -66,6 +66,7 @@ table {
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
 body {
     min-width: 400px;
+    font-family: var(--font);
 }
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
@@ -76,7 +77,7 @@ body {
 }
 
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
+section#about {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
     display: grid;
@@ -86,9 +87,14 @@ body {
     overflow: hidden;
 }
 
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
+h1::before {
     content: "";
+    display: inline-block;
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
@@ -106,6 +112,7 @@ body {
     width: 100%;
     max-width: 800px;
     padding: 1rem;
+    padding-bottom: 2rem;
     position: relative;
 }
 
@@ -115,7 +122,7 @@ body {
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
+    transition-property: height;
     height: 0;
 }
 
@@ -145,6 +152,188 @@ body {
     animation: stepUp 1s ease-in-out forwards;
 }
 
+h2, h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--black);
+    color: var(--blue);
+    padding-bottom: 2rem;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav {
+    position: relative;
+}
+nav ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    text-align: center;
+    max-height: 0;
+}
+nav h2 {
+    visibility: hidden;
+    height: 1px;
+}
+nav li a {
+    display:block;
+    font-size:1.5rem;
+    padding:1rem;
+    text-transform:uppercase;
+    font-weight:bold;
+    text-decoration:none;
+    color: var(--blue);
+    transition: background-color .3s ease-in;
+}
+nav a:hover, nav input:hover {
+    background-color: var(--blue);
+    color: var(--black);
+}
+nav label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.5rem;
+    user-select: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+}
+label span {
+    background-color: var(--white);
+    display: block;
+    height: .25rem;
+    position: relative;
+    transition: background-color .3s ease-out;
+    width: 2rem;
+}
+label span:before, label span:after {
+    background: var(--white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: .75rem;
+}
+label span:after {
+    top: -.75rem;
+}
+input {
+    display:none;
+}
+input:checked ~ ul {
+    max-height: 500px;
+}
+input:checked ~ label span {
+    background: transparent;
+}
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 1rem;
+}
+
+#about {
+    color: var(--white);
+    box-shadow: inset -1px 10px 5px -5px var(--blue);
+}
+#about #consult {
+    display: inline-block;
+    font-weight: bold;
+    background-color: var(--blue);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+#expertise, #services {
+    background-color: var(--white);
+    line-height: 1.3;
+    margin: 20px 0;
+}
+#expertise h2, #services h2 {
+    color: var(--black);
+}
+#expertise p {
+    color: var(--black);
+}
+
+#services .service {
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+}
+#services .service h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px;
+}
+
+#results {
+    background-color: var(--blue);
+    color: var(--white);
+    line-height: 1.3;
+}
+#results table {
+    background-color: var(--black);
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--charcoal);
+}
+#results table th {
+    font-weight: bold;
+    padding: 1rem 0;
+    border: 1px solid var(--charcoal);
+}
+#results table td {
+    padding: 1rem 0;
+    border: 1px solid var(--charcoal);
+}
+tr.gray-bg {
+    background-color: var(--charcoal);
+}
+
+#contact {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+input[type="text"], input[type="email"], textarea {
+    display: block;
+    background-color: var(--white);
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: var(--blue);
+    display: block;
+    width: 100%;
+    padding: .8rem;
+    color: var(--white);
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
 
 /* MEDIA QUERIES (MEDIUM) */ 
 @media screen and (min-width: 800px) {
@@ -160,6 +349,21 @@ body {
     }
     .bar-chart {
         width: 50%;
+    }
+    nav ul {
+        overflow:visible;
+        position:absolute;
+        top: 1.5rem;
+        left:.5rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    nav li a {
+        display:inline-block;
+        color: var(--blue);
+    }
+    label span, input {
+        display:none;
     }
 }
 
